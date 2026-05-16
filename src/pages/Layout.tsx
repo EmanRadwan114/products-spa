@@ -5,13 +5,13 @@ import Navbar from "../components/Navbar";
 
 const Layout: React.FC = () => {
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <Navbar />
       <main className="pt-20">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
