@@ -3,7 +3,7 @@ import { api } from "../utils/api";
 
 export const fetchProducts = async () => {
   try {
-    const response = await api.get("/product");
+    const response = await api.get("/products");
     return response.data;
   } catch (error) {
     const errMsg = axios.isAxiosError(error)

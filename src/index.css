@@ -5,7 +5,7 @@
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  --primary-color: rgb(141, 39, 119);
+  --primary-color: rgb(102, 39, 141);
   --primary-background: #ffffff;
   --primary-text: rgb(26, 24, 25);
   --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -13,11 +13,11 @@
 }
 
 .dark {
-  --primary-color: rgb(206, 108, 185);
+  --primary-color: rgb(162, 110, 189);
   --primary-background: rgb(26, 24, 25);
   --primary-text: #ffffff;
   --shadow-card: 0 2px 12px rgba(255, 255, 255, 0.08);
-  --shadow-primary: 0 4px 15px rgba(216, 163, 205, 0.25);
+  --shadow-primary: 0 4px 15px rgba(205, 163, 216, 0.25);
 }
 
 @theme {

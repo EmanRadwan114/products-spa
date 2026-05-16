@@ -6,7 +6,7 @@ const Logo: React.FC = () => {
     <div className="flex gap-1.5 items-center">
       <ShoppingBag className="size-6 text-primary" />
       <h1 className="font-bold text-2xl text-primary-text capitalize">
-        ShopSphere
+        Shopio
       </h1>
     </div>
   );
