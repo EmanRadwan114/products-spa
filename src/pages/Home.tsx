@@ -7,8 +7,10 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 mb-6">
       <HeroSection />
-      <FilterTabs />
-      <Products />
+      <section>
+        <FilterTabs />
+        <Products />
+      </section>
     </div>
   );
 };

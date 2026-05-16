@@ -13,7 +13,7 @@
 }
 
 .dark {
-  --primary-color: rgb(172, 108, 206);
+  --primary-color: rgb(162, 110, 189);
   --primary-background: rgb(26, 24, 25);
   --primary-text: #ffffff;
   --shadow-card: 0 2px 12px rgba(255, 255, 255, 0.08);

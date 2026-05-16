@@ -32,7 +32,7 @@ const HeroSection: React.FC = () => {
             <img
               src={heroImage}
               alt="hero-image"
-              className="object-fit max-h-64 md:max-h-96"
+              className="object-cover max-h-64 md:max-h-96"
             />
           </div>
         </div>

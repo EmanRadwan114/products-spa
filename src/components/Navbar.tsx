@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
   );
 
   return (
-    <header className="fixed inset-s-0 top-0 w-full bg-primary-background/85 z-1000">
+    <header className="fixed inset-s-0 top-0 w-full bg-primary-background/90 z-1000">
       <Container>{isMobile ? mobileNav : desktopNav}</Container>
     </header>
   );

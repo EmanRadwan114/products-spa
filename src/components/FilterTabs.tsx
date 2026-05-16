@@ -7,9 +7,12 @@ interface IProps {}
 
 const FilterTabs: React.FC<IProps> = ({}) => {
   return (
-    <section className="py-2">
+    <section>
       <Container>
-        <div className="flex gap-4 flex-wrap items-center justify-center bg-primary/6 dark:bg-neutral-800 shadow-xl rounded-lg py-4">
+        <h2 className="text-2xl font-bold text-center text-primary mb-6">
+          Pick Your Favorite Category
+        </h2>
+        <div className="flex gap-4 flex-wrap items-center justify-center">
           {filterItems.map((item) => (
             <Button key={item} variant="secondary" className="min-w-32">
               {item}

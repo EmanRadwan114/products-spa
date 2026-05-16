@@ -12,9 +12,9 @@ export const useFetchProducts = () => {
       setIsLoading(true);
       try {
         const data = await fetchProducts();
-        console.log(data);
+        setProducts(data);
       } catch (error) {
-        toast.error("Failed to fetch products");
+        toast.error(error?.message || "Failed to fetch products");
       } finally {
         setIsLoading(false);
       }
