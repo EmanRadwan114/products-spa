@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+/* Configure Tailwind v4 variant */
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary-color: rgb(141, 39, 119);
+  --primary-background: #ffffff;
+  --primary-text: rgb(26, 24, 25);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-primary: 0 4px 15px rgba(169, 117, 158, 0.25);
+}
+
+.dark {
+  --primary-color: rgb(206, 108, 185);
+  --primary-background: rgb(26, 24, 25);
+  --primary-text: #ffffff;
+  --shadow-card: 0 2px 12px rgba(255, 255, 255, 0.08);
+  --shadow-primary: 0 4px 15px rgba(216, 163, 205, 0.25);
+}
+
+@theme {
+  --color-primary: var(--primary-color);
+  --color-primary-background: var(--primary-background);
+  --color-primary-text: var(--primary-text);
+  --shadow-card: var(--shadow-card);
+  --shadow-primary: var(--shadow-primary);
+}
+
+body {
+  background-color: var(--primary-background);
+  color: var(--primary-text);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
