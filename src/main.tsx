@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "next-themes";
 import { ToastContainer } from "react-toastify";
+import ProductsContextProvider from "./context/products.context";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
     <ToastContainer />
-    <RouterProvider router={router} />
+    <ProductsContextProvider>
+      <RouterProvider router={router} />
+    </ProductsContextProvider>
   </ThemeProvider>,
 );

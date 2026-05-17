@@ -1,12 +1,10 @@
 import React from "react";
 import Container from "./ui/Container";
 import ProductCard from "./ProductCard";
-import { useFetchProducts } from "../hooks/products.hooks";
+import { useProductsContext } from "../context/products.context";
 
-interface IProps {}
-
-const DisplayedProducts: React.FC<IProps> = ({}) => {
-  const { products, isLoading } = useFetchProducts();
+const DisplayedProducts: React.FC = () => {
+  const { products, isLoading } = useProductsContext();
 
   if (isLoading) {
     return <p>Loading...</p>;

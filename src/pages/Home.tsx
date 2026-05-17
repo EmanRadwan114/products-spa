@@ -4,7 +4,7 @@ import FeaturedProducts from "../components/FeaturedProducts";
 
 const Home: React.FC = () => {
   return (
-    <div className="flex flex-col gap-8 mb-8">
+    <div className="flex flex-col gap-8 mb-8 mt-2">
       <HeroSection />
       <FeaturedProducts />
     </div>

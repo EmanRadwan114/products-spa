@@ -1,15 +1,13 @@
 import React from "react";
 import Container from "./ui/Container";
 import ProductCard from "./ProductCard";
-import { useFetchProducts } from "../hooks/products.hooks";
 import Button from "./ui/Button";
 import { Link } from "react-router";
 import { MoveRight } from "lucide-react";
+import { useProductsContext } from "../context/products.context";
 
-interface IProps {}
-
-const FeaturedProducts: React.FC<IProps> = ({}) => {
-  const { products, isLoading } = useFetchProducts();
+const FeaturedProducts: React.FC = () => {
+  const { products, isLoading } = useProductsContext();
 
   if (isLoading) {
     return <p>Loading...</p>;

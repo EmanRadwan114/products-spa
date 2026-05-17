@@ -3,9 +3,7 @@ import { filterItems } from "../data/filter.data";
 import Button from "./ui/Button";
 import Container from "./ui/Container";
 
-interface IProps {}
-
-const FilterTabs: React.FC<IProps> = ({}) => {
+const FilterTabs: React.FC = () => {
   return (
     <section>
       <Container>
