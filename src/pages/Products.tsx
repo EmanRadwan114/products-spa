@@ -8,6 +8,8 @@ import NoResults from "../components/ui/NoResults";
 
 const Products: React.FC = () => {
   const { products, isLoading } = useProductsContext();
+  console.log("hi");
+
   return (
     <section>
       <Container>

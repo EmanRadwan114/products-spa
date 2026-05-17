@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import type { IProduct } from "../types/products.types";
+import type { IProduct, TCategory } from "../types/products.types";
 import {
   fetchProductById,
   fetchProducts,
@@ -37,10 +37,6 @@ export const useFetchProducts = () => {
 
 // ^---------------------fetch category products & search product---------------------
 export const useFilterProducts = () => {
-  const [originalFilteredProducts, setOriginalFilteredProducts] = useState<
-    IProduct[]
-  >([]);
-
   const {
     searchTerm,
     isLoading,
@@ -49,6 +45,8 @@ export const useFilterProducts = () => {
     setSelectedCategory,
     products,
     setSearchTerm,
+    filteredProducts: originalFilteredProducts,
+    setFilteredProducts: setOriginalFilteredProducts,
   } = useProductsContext();
 
   // every mount start with all category
@@ -59,28 +57,6 @@ export const useFilterProducts = () => {
     };
   }, []);
 
-  // fetch products by category
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const data = await fetchProductsByCategory(selectedCategory);
-        setOriginalFilteredProducts(data);
-      } catch (error) {
-        const errMsg =
-          error instanceof Error ? error.message : "Failed to fetch products";
-
-        toast.error(errMsg);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    if (selectedCategory !== "all") {
-      fetchData();
-    }
-  }, [selectedCategory, setIsLoading]);
-
   // search product
   const filteredProducts = useMemo(() => {
     const baseProducts =
@@ -90,9 +66,30 @@ export const useFilterProducts = () => {
         ?.toLocaleLowerCase()
         .includes(searchTerm.toLocaleLowerCase()),
     );
-  }, [searchTerm, selectedCategory, originalFilteredProducts]);
+  }, [searchTerm, selectedCategory, originalFilteredProducts, products]);
 
-  return { filteredProducts, isLoading };
+  // fetch products by category
+  const handleFetchFilteredProducts = async (category: TCategory) => {
+    setSearchTerm("");
+    setSelectedCategory(category);
+
+    if (category === "all") return;
+
+    setIsLoading(true);
+
+    try {
+      const data = await fetchProductsByCategory(category);
+      setOriginalFilteredProducts(data);
+    } catch (error) {
+      const errMsg =
+        error instanceof Error ? error.message : "Failed to fetch products";
+      toast.error(errMsg);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return { filteredProducts, isLoading, handleFetchFilteredProducts };
 };
 
 // ^---------------------fecth product by id-----------------------------
