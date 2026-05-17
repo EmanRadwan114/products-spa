@@ -1,7 +1,11 @@
 import React from "react";
 import NoResultsImg from "../../assets/images/no-results.png";
 
-const NoResults: React.FC = () => {
+interface IProps {
+  message?: string;
+}
+
+const NoResults: React.FC<IProps> = ({ message = "No Products Found" }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-2">
       <img
@@ -10,10 +14,10 @@ const NoResults: React.FC = () => {
         className="w-40 object-cover"
       />
       <p className="text-xl font-medium text-primary-text/80 text-center">
-        No Results Match Your Search
+        {message}
       </p>
     </div>
   );
 };
 
-export default NoResults;
+export default React.memo(NoResults);

@@ -4,7 +4,8 @@ import ProductCard from "./ProductCard";
 import { MoveRight } from "lucide-react";
 import { useProductsContext } from "../context/products.context";
 import ButtonLink from "./ui/ButtonLink";
-import SkeletonSection from "./SkeletonSection";
+import ProductsSkeleton from "./ProductsSkeleton";
+import NoResults from "./ui/NoResults";
 
 const FeaturedProducts: React.FC = () => {
   const { products, isLoading } = useProductsContext();
@@ -22,8 +23,10 @@ const FeaturedProducts: React.FC = () => {
           </p>
         </header>
         {/* products */}
-        {isLoading ? (
-          <SkeletonSection />
+        {products.length === 0 && !isLoading ? (
+          <NoResults />
+        ) : isLoading ? (
+          <ProductsSkeleton />
         ) : (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
