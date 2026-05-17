@@ -10,3 +10,10 @@ export interface IProduct {
     count: number;
   };
 }
+
+export type TCategory =
+  | "all"
+  | "electronics"
+  | "jewelery"
+  | "men's clothing"
+  | "women's clothing";

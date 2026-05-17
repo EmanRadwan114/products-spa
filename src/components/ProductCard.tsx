@@ -11,7 +11,7 @@ interface IProps {
 
 const ProductCard: React.FC<IProps> = ({ product }) => {
   return (
-    <div className="bg-primary/6 dark:bg-neutral-800 rounded-lg shadow-lg p-4 flex flex-col gap-2 group overflow-hidden">
+    <div className="bg-primary/6 dark:bg-neutral-800 rounded-lg shadow-lg p-4 flex flex-col gap-2 group overflow-hidden h-full">
       <Link to={`/products/${product?.id}`}>
         <img
           src={product?.image}
@@ -38,16 +38,16 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
           {product?.description?.length > 40 ? "..." : ""}
         </p>
         <span className="text-lg font-semibold">{product?.price}$</span>
-        <Button>
-          <Link
-            to={`/products/${product?.id}`}
-            className="flex gap-2 items-center justify-center h-full w-full"
-          >
-            View Details
-            <MoveRight />
-          </Link>
-        </Button>
       </div>
+      <Button className="mt-auto">
+        <Link
+          to={`/products/${product?.id}`}
+          className="flex gap-2 items-center justify-center h-full w-full"
+        >
+          View Details
+          <MoveRight />
+        </Link>
+      </Button>
     </div>
   );
 };

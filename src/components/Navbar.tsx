@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
       <Logo />
       <ul className="flex gap-4">
         {navLinks.map((link) => (
-          <li className="group cursor-pointer relative p-2" key={link.name}>
+          <li className="group cursor-pointer relative" key={link.name}>
             <ActiveLink path={link.path} name={link.name} />
           </li>
         ))}
@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
           <ul className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <li
-                className="group cursor-pointer relative p-2"
+                className="group cursor-pointer relative"
                 key={link.name}
                 onClick={() => {
                   setIsMobileMenuOpen((m) => !m);
