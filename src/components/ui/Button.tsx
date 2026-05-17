@@ -23,7 +23,7 @@ const Button: React.FC<IProps> = ({
 
   return (
     <button
-      className={`px-4 py-1.5  font-medium rounded transition-all duration-300 cursor-pointer capitalize ${variantClass[variant]} ${className}`}
+      className={`px-4 py-1.5 text-sm font-medium rounded transition-all duration-300 cursor-pointer capitalize ${variantClass[variant]} ${className}`}
       {...props}
     >
       {children}

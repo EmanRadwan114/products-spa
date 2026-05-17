@@ -10,7 +10,7 @@ interface IProps {
 
 const ProductCard: React.FC<IProps> = ({ product }) => {
   return (
-    <div className="bg-primary/6 dark:bg-neutral-800 rounded-lg shadow-xl p-4 flex flex-col gap-2 group hover:scale-105 transition-all duration-300">
+    <div className="bg-primary/6 dark:bg-neutral-800 rounded-lg shadow-xl p-4 flex flex-col gap-2 group hover:scale-105 transition-all duration-300 overflow-hidden">
       <img
         src={product?.image}
         alt={product?.title}
