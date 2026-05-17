@@ -20,4 +20,4 @@ const NoResults: React.FC<IProps> = ({ message = "No Products Found" }) => {
   );
 };
 
-export default NoResults;
+export default React.memo(NoResults);
