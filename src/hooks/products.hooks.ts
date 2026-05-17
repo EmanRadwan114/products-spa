@@ -20,7 +20,10 @@ export const useFetchProducts = () => {
         const data = await fetchProducts();
         setProducts(data);
       } catch (error) {
-        toast.error(error?.message || "Failed to fetch products");
+        const errMsg =
+          error instanceof Error ? error.message : "Failed to fetch products";
+
+        toast.error(errMsg);
       } finally {
         setIsLoading(false);
       }
@@ -64,7 +67,10 @@ export const useFilterProducts = () => {
         const data = await fetchProductsByCategory(selectedCategory);
         setOriginalFilteredProducts(data);
       } catch (error) {
-        toast.error(error?.message || "Failed to fetch products");
+        const errMsg =
+          error instanceof Error ? error.message : "Failed to fetch products";
+
+        toast.error(errMsg);
       } finally {
         setIsLoading(false);
       }
@@ -101,7 +107,10 @@ export const useFetchProductById = (id: string) => {
         const data = await fetchProductById(id);
         setProduct(data);
       } catch (error) {
-        toast.error(error?.message || "Failed to fetch product");
+        const errMsg =
+          error instanceof Error ? error.message : "Failed to fetch product";
+
+        toast.error(errMsg);
       } finally {
         setIsLoading(false);
       }
