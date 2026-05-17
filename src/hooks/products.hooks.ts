@@ -38,8 +38,6 @@ export const useFilterProducts = () => {
   >([]);
 
   const {
-    setFilteredProducts,
-    filteredProducts,
     searchTerm,
     isLoading,
     setIsLoading,
@@ -63,7 +61,6 @@ export const useFilterProducts = () => {
       setIsLoading(true);
       try {
         const data = await fetchProductsByCategory(selectedCategory);
-        setFilteredProducts(data);
         setOriginalFilteredProducts(data);
       } catch (error) {
         toast.error(error?.message || "Failed to fetch products");
@@ -75,28 +72,18 @@ export const useFilterProducts = () => {
     if (selectedCategory !== "all") {
       fetchData();
     }
-  }, [selectedCategory, setFilteredProducts, setIsLoading]);
+  }, [selectedCategory, setIsLoading]);
 
   // search product
-  useEffect(() => {
-    let resultedProducts: IProduct[] = [];
-
-    if (selectedCategory === "all") {
-      resultedProducts = products.filter((product) =>
-        product?.title
-          ?.toLocaleLowerCase()
-          .includes(searchTerm.toLocaleLowerCase()),
-      );
-    } else {
-      resultedProducts = originalFilteredProducts?.filter((product) =>
-        product?.title
-          ?.toLocaleLowerCase()
-          .includes(searchTerm.toLocaleLowerCase()),
-      );
-    }
-
-    setFilteredProducts(resultedProducts);
-  }, [searchTerm, setFilteredProducts, selectedCategory]);
+  const filteredProducts = useMemo(() => {
+    const baseProducts =
+      selectedCategory === "all" ? products : originalFilteredProducts;
+    return baseProducts?.filter((product) =>
+      product?.title
+        ?.toLocaleLowerCase()
+        .includes(searchTerm.toLocaleLowerCase()),
+    );
+  }, [searchTerm, selectedCategory, originalFilteredProducts]);
 
   return { filteredProducts, isLoading };
 };

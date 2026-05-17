@@ -2,7 +2,6 @@ import React from "react";
 import type { IProduct } from "../types/products.types";
 import Badge from "./ui/Badge";
 import { MoveRight, Star } from "lucide-react";
-import Button from "./ui/Button";
 import { Link } from "react-router";
 import ButtonLink from "./ui/ButtonLink";
 

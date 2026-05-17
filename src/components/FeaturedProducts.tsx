@@ -1,8 +1,6 @@
 import React from "react";
 import Container from "./ui/Container";
 import ProductCard from "./ProductCard";
-import Button from "./ui/Button";
-import { Link } from "react-router";
 import { MoveRight } from "lucide-react";
 import { useProductsContext } from "../context/products.context";
 import ButtonLink from "./ui/ButtonLink";

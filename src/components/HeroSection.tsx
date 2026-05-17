@@ -1,8 +1,6 @@
 import React from "react";
 import Container from "./ui/Container";
 import heroImage from "../assets/images/hero.png";
-import Button from "./ui/Button";
-import { Link } from "react-router";
 import { MoveRight } from "lucide-react";
 import ButtonLink from "./ui/ButtonLink";
 

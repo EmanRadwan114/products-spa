@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
 import type { IProduct, TCategory } from "../types/products.types";
 import { useFetchProducts } from "../hooks/products.hooks";
 
@@ -39,15 +33,11 @@ const ProductsContext = createContext<IProductContext>({
 });
 
 const ProductsContextProvider = ({ children }: IProps) => {
-  const { products, isLoading, setIsLoading, setProducts } = useFetchProducts();
-
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<TCategory>("all");
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
 
-  useEffect(() => {
-    setFilteredProducts(products);
-  }, [products]);
+  const { products, isLoading, setIsLoading, setProducts } = useFetchProducts();
 
   return (
     <ProductsContext.Provider
@@ -69,6 +59,7 @@ const ProductsContextProvider = ({ children }: IProps) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useProductsContext = () => {
   const productContext = useContext(ProductsContext);
   if (!productContext) throw new Error("product context not found");
