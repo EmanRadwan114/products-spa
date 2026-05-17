@@ -8,13 +8,13 @@ const NotFound: React.FC = () => {
   return (
     <section>
       <Container>
-        <div className="flex flex-col items-center justify-center h-[85vh] lg:py-8">
+        <div className="flex flex-col items-center justify-center h-[50vh] md:h-[50vh]">
           <img
             src={notFoundImage}
             alt="not-found-image"
-            className="max-w-56 sm:max-w-72 md:max-w-96"
+            className="w-64 object-cover"
           />
-          <ButtonLink to="/" className="lg:text-base!">
+          <ButtonLink to="/">
             <MoveLeft />
             Back to Home
           </ButtonLink>

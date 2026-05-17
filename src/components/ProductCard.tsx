@@ -11,7 +11,7 @@ interface IProps {
 
 const ProductCard: React.FC<IProps> = ({ product }) => {
   return (
-    <div className="bg-primary/6 dark:bg-neutral-800 rounded-lg shadow-lg p-4 flex flex-col gap-2 group overflow-hidden h-full">
+    <div className="bg-primary/6 dark:bg-neutral-800 rounded-md shadow-lg p-4 flex flex-col gap-2 group overflow-hidden h-full">
       <Link to={`/products/${product?.id}`}>
         <img
           src={product?.image}

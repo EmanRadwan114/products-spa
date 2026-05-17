@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
   return (
     <section>
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-center bg-primary/10 dark:bg-neutral-800 px-4 md:px-8 py-4 rounded-lg justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-center bg-primary/10 dark:bg-neutral-800 px-4 md:px-8 py-4 rounded-md justify-items-center">
           {/* content */}
           <div className="flex flex-col gap-4 max-w-lg">
             <h1 className="text-5xl font-bold">Shopio</h1>

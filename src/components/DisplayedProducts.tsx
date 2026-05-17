@@ -2,6 +2,8 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import { useFilterProducts } from "../hooks/products.hooks";
 import { useProductsContext } from "../context/products.context";
+import NoResults from "./ui/NoResults";
+import SkeletonSection from "./SkeletonSection";
 
 const DisplayedProducts: React.FC = () => {
   const { filteredProducts, isLoading } = useFilterProducts();
@@ -11,7 +13,11 @@ const DisplayedProducts: React.FC = () => {
     searchTerm || selectedCategory !== "all" ? filteredProducts : products;
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <SkeletonSection />;
+  }
+
+  if (displayedProducts.length === 0) {
+    return <NoResults />;
   }
 
   return (

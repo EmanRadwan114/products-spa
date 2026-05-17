@@ -22,7 +22,7 @@ const ButtonLink: React.FC<IProps> = ({
   return (
     <Link
       to={to}
-      className={`text-sm font-medium rounded transition-all duration-300 cursor-pointer capitalize m-0 flex items-center justify-center gap-2 px-8 py-1.5 ${variantClass[variant]} ${className}`}
+      className={`text-sm font-medium rounded-md transition-all duration-300 cursor-pointer capitalize m-0 flex items-center justify-center gap-2 px-8 py-1.5 ${variantClass[variant]} ${className}`}
     >
       {children}
     </Link>

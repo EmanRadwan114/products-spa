@@ -4,13 +4,10 @@ import ProductCard from "./ProductCard";
 import { MoveRight } from "lucide-react";
 import { useProductsContext } from "../context/products.context";
 import ButtonLink from "./ui/ButtonLink";
+import SkeletonSection from "./SkeletonSection";
 
 const FeaturedProducts: React.FC = () => {
   const { products, isLoading } = useProductsContext();
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <section>
@@ -25,18 +22,24 @@ const FeaturedProducts: React.FC = () => {
           </p>
         </header>
         {/* products */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-          {products.slice(0, 8).map((product) => (
-            <ProductCard product={product} key={product?.id} />
-          ))}
-        </div>
-        {/* action */}
-        <div className="flex justify-center">
-          <ButtonLink to="/products" variant="secondary">
-            View All Products
-            <MoveRight />
-          </ButtonLink>
-        </div>
+        {isLoading ? (
+          <SkeletonSection />
+        ) : (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+              {products.slice(0, 8).map((product) => (
+                <ProductCard product={product} key={product?.id} />
+              ))}
+            </div>
+            {/* action */}
+            <div className="flex justify-center">
+              <ButtonLink to="/products" variant="secondary">
+                View All Products
+                <MoveRight />
+              </ButtonLink>
+            </div>
+          </>
+        )}
       </Container>
     </section>
   );

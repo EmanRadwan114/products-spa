@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
         </Button>
         {/* mobile nav menu */}
         <div
-          className={`flex flex-col gap-4 absolute shadow-primary top-10 inset-e-1/4 min-w-52 p-4 rounded transition-all duration-300 ease-in-out z-2000 bg-primary-background ${
+          className={`flex flex-col gap-4 absolute shadow-primary top-10 inset-e-1/4 min-w-52 p-4 rounded-md transition-all duration-300 ease-in-out z-2000 bg-primary-background ${
             isMobileMenuOpen
               ? "visible opacity-100 translate-y-0"
               : "invisible opacity-0 translate-y-2"
