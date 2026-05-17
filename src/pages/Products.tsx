@@ -3,8 +3,11 @@ import DisplayedProducts from "../components/DisplayedProducts";
 import FilterTabs from "../components/FilterTabs";
 import SearchBox from "../components/SearchBox";
 import Container from "../components/ui/Container";
+import { useProductsContext } from "../context/products.context";
+import NoResults from "../components/ui/NoResults";
 
 const Products: React.FC = () => {
+  const { products } = useProductsContext();
   return (
     <section>
       <Container>
@@ -13,12 +16,19 @@ const Products: React.FC = () => {
             <h2 className="text-3xl font-bold text-center mb-6">
               Pick Your Favorite Product
             </h2>
-            <FilterTabs />
+            {products.length === 0 ? (
+              <NoResults />
+            ) : (
+              <div className="flex flex-col gap-6">
+                <FilterTabs />
+
+                <div className="self-center md:self-end">
+                  <SearchBox />
+                </div>
+                <DisplayedProducts />
+              </div>
+            )}
           </div>
-          <div className="self-center md:self-end">
-            <SearchBox />
-          </div>
-          <DisplayedProducts />
         </div>
       </Container>
     </section>

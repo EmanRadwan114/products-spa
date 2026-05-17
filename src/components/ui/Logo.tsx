@@ -1,14 +1,15 @@
 import { ShoppingBag } from "lucide-react";
 import React from "react";
+import { Link } from "react-router";
 
 const Logo: React.FC = () => {
   return (
-    <div className="flex gap-1.5 items-center">
-      <ShoppingBag className="size-6 text-primary" />
-      <h1 className="font-bold text-2xl text-primary-text capitalize">
+    <h1 className="font-bold text-2xl text-primary-text capitalize">
+      <Link to="/" className="flex gap-1.5 w-full h-full items-center">
+        <ShoppingBag className="size-6 text-primary" />
         Shopio
-      </h1>
-    </div>
+      </Link>
+    </h1>
   );
 };
 

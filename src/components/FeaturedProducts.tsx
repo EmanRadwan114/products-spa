@@ -5,6 +5,7 @@ import { MoveRight } from "lucide-react";
 import { useProductsContext } from "../context/products.context";
 import ButtonLink from "./ui/ButtonLink";
 import ProductsSkeleton from "./ProductsSkeleton";
+import NoResults from "./ui/NoResults";
 
 const FeaturedProducts: React.FC = () => {
   const { products, isLoading } = useProductsContext();
@@ -22,7 +23,9 @@ const FeaturedProducts: React.FC = () => {
           </p>
         </header>
         {/* products */}
-        {isLoading ? (
+        {products.length === 0 ? (
+          <NoResults />
+        ) : isLoading ? (
           <ProductsSkeleton />
         ) : (
           <>

@@ -8,7 +8,7 @@ const FilterTabs: React.FC = () => {
   const { setSelectedCategory, selectedCategory, setSearchTerm } =
     useProductsContext();
   return (
-    <div className="flex gap-1 sm:gap-4 flex-wrap items-center justify-center">
+    <div className="flex gap-1 sm:gap-2.5 flex-wrap items-center justify-center">
       {filterItems.map((item) => (
         <Button
           key={item}

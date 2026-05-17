@@ -9,10 +9,10 @@ export const fetchProducts = async () => {
     return response.data;
   } catch (error) {
     const errMsg = axios.isAxiosError(error)
-      ? error.response?.data?.message || error.message
+      ? error.message
       : "Failed to fetch products";
 
-    console.log(errMsg);
+    throw new Error(errMsg, { cause: error });
   }
 };
 
@@ -23,10 +23,10 @@ export const fetchProductsByCategory = async (category: TCategory) => {
     return response.data;
   } catch (error) {
     const errMsg = axios.isAxiosError(error)
-      ? error.response?.data?.message || error.message
+      ? error.message
       : "Failed to fetch products";
 
-    console.log(errMsg);
+    throw new Error(errMsg, { cause: error });
   }
 };
 
@@ -37,9 +37,9 @@ export const fetchProductById = async (id: string) => {
     return response.data;
   } catch (error) {
     const errMsg = axios.isAxiosError(error)
-      ? error.response?.data?.message || error.message
+      ? error.message
       : "Failed to fetch product";
 
-    console.log(errMsg);
+    throw new Error(errMsg, { cause: error });
   }
 };
