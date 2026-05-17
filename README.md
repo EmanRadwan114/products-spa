@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# Products SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Single Page Application for displaying and filtering products, built with React, TypeScript, Tailwind CSS and Vite.
 
-Currently, two official plugins are available:
+## 🚀 How to Install and Run the App
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. **Clone the repository** (if you haven't already):
 
-## React Compiler
+   ```bash
+   git clone <repository-url>
+   cd products-SPA
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. **Install dependencies**:
+   Make sure you have Node.js installed, then run:
 
-## Expanding the ESLint configuration
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+   This will start the application locally, typically at `http://localhost:5173`. Open this URL in your browser to view the app.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tools & Libraries Used
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS**
+- **Axios**
+- **React Router v7**
+- **Lucide React**
+- **React Toastify**
+- **Next Themes**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🧠 Challenges and Solutions
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### State Management & Prop Drilling
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**The Challenge:**
+Passing state (e.g., search terms, categories) down through multiple component layers (prop drilling) became annoying as the application grew.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**The Solution:**
+I used the **Context API** to create a global state, providing direct access to product data and filters without intermediate prop passing.
+
+**Future Improvements:**
+If expanding this project, I would adopt:
+
+- **Zustand**: For UI state management (search query, filters) due to its minimal boilerplate and efficiency.
+- **React Query**: For server-side state and caching.
