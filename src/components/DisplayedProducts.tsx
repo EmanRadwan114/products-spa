@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 import { useFilterProducts } from "../hooks/products.hooks";
 import { useProductsContext } from "../context/products.context";
 import NoResults from "./ui/NoResults";
-import SkeletonSection from "./SkeletonSection";
+import ProductsSkeleton from "./ProductsSkeleton";
 
 const DisplayedProducts: React.FC = () => {
   const { filteredProducts, isLoading } = useFilterProducts();
@@ -13,7 +13,7 @@ const DisplayedProducts: React.FC = () => {
     searchTerm || selectedCategory !== "all" ? filteredProducts : products;
 
   if (isLoading) {
-    return <SkeletonSection />;
+    return <ProductsSkeleton />;
   }
 
   if (displayedProducts.length === 0) {

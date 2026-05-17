@@ -2,7 +2,7 @@ import React from "react";
 import Skeleton from "./ui/Skeleton";
 import Container from "./ui/Container";
 
-const SkeletonSection: React.FC = () => {
+const ProductsSkeleton: React.FC = () => {
   return (
     <section>
       <Container>
@@ -16,4 +16,4 @@ const SkeletonSection: React.FC = () => {
   );
 };
 
-export default SkeletonSection;
+export default ProductsSkeleton;
