@@ -1,26 +1,28 @@
 import React from "react";
 import { filterItems } from "../data/filter.data";
 import Button from "./ui/Button";
-import Container from "./ui/Container";
+import { useProductsContext } from "../context/products.context";
+import type { TCategory } from "../types/products.types";
 
-interface IProps {}
-
-const FilterTabs: React.FC<IProps> = ({}) => {
+const FilterTabs: React.FC = () => {
+  const { setSelectedCategory, selectedCategory, setSearchTerm } =
+    useProductsContext();
   return (
-    <section>
-      <Container>
-        <h2 className="text-2xl font-bold text-center text-primary mb-6">
-          Pick Your Favorite Category
-        </h2>
-        <div className="flex gap-4 flex-wrap items-center justify-center">
-          {filterItems.map((item) => (
-            <Button key={item} variant="secondary" className="min-w-32">
-              {item}
-            </Button>
-          ))}
-        </div>
-      </Container>
-    </section>
+    <div className="flex gap-1 sm:gap-4 flex-wrap items-center justify-center">
+      {filterItems.map((item) => (
+        <Button
+          key={item}
+          variant={selectedCategory === item ? "primary" : "secondary"}
+          className="min-w-24 sm:min-w-32 capitalize"
+          onClick={() => {
+            setSelectedCategory(item as TCategory);
+            setSearchTerm("");
+          }}
+        >
+          {item}
+        </Button>
+      ))}
+    </div>
   );
 };
 

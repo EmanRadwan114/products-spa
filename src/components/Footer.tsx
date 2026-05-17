@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
                 {socialLinks.map((link) => (
                   <div
                     key={link.name}
-                    className="flex justify-center items-center bg-primary-text rounded-full w-9 hover:bg-primary-text/90 hover:scale-105 transition-all duration-300"
+                    className="flex justify-center items-center bg-primary/10 dark:bg-primary-text rounded-full size-9 hover:bg-primary/30 dark:hover:bg-primary-text/85 transition-colors duration-500"
                   >
                     <a
                       target="_blank"
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
       </section>
 
       {/* copyright section */}
-      <section className="py-4 text-center border-t border-t-primary-text/20 bg-neutral-800">
+      <section className="py-4 text-center border-t border-t-primary-text/20 bg-primary/10 dark:bg-neutral-800">
         <p className="text-sm text-primary-text/80">
           &copy; {currentYear} Shopio. All rights reserved.
         </p>
