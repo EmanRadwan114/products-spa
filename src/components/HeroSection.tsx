@@ -4,6 +4,7 @@ import heroImage from "../assets/images/hero.png";
 import Button from "./ui/Button";
 import { Link } from "react-router";
 import { MoveRight } from "lucide-react";
+import ButtonLink from "./ui/ButtonLink";
 
 const HeroSection: React.FC = () => {
   return (
@@ -19,15 +20,10 @@ const HeroSection: React.FC = () => {
               for their excellence and popularity, and find your next favorite
               item today!
             </p>
-            <Button className="w-fit px-8">
-              <Link
-                to="/products"
-                className="flex gap-2 items-center justify-center w-full h-full"
-              >
-                Explore Now
-                <MoveRight />
-              </Link>
-            </Button>
+            <ButtonLink to="/products" className="w-fit">
+              Explore Now
+              <MoveRight />
+            </ButtonLink>
           </div>
           {/* image */}
           <div className="md:justify-self-end hover:scale-110 transition-all duration-500 ">

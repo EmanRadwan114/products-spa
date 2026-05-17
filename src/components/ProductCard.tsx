@@ -4,6 +4,7 @@ import Badge from "./ui/Badge";
 import { MoveRight, Star } from "lucide-react";
 import Button from "./ui/Button";
 import { Link } from "react-router";
+import ButtonLink from "./ui/ButtonLink";
 
 interface IProps {
   product: IProduct;
@@ -39,15 +40,10 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
         </p>
         <span className="text-lg font-semibold">{product?.price}$</span>
       </div>
-      <Button className="mt-auto">
-        <Link
-          to={`/products/${product?.id}`}
-          className="flex gap-2 items-center justify-center h-full w-full"
-        >
-          View Details
-          <MoveRight />
-        </Link>
-      </Button>
+      <ButtonLink to={`/products/${product?.id}`} className="mt-auto">
+        View Details
+        <MoveRight />
+      </ButtonLink>
     </div>
   );
 };

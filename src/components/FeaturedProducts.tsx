@@ -5,6 +5,7 @@ import Button from "./ui/Button";
 import { Link } from "react-router";
 import { MoveRight } from "lucide-react";
 import { useProductsContext } from "../context/products.context";
+import ButtonLink from "./ui/ButtonLink";
 
 const FeaturedProducts: React.FC = () => {
   const { products, isLoading } = useProductsContext();
@@ -33,15 +34,10 @@ const FeaturedProducts: React.FC = () => {
         </div>
         {/* action */}
         <div className="flex justify-center">
-          <Button variant="secondary" className="px-6">
-            <Link
-              to="/products"
-              className="flex gap-2 items-center justify-center h-full w-full"
-            >
-              View All Products
-              <MoveRight />
-            </Link>
-          </Button>
+          <ButtonLink to="/products" variant="secondary">
+            View All Products
+            <MoveRight />
+          </ButtonLink>
         </div>
       </Container>
     </section>
