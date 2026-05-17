@@ -23,7 +23,7 @@ const FeaturedProducts: React.FC = () => {
           </p>
         </header>
         {/* products */}
-        {products.length === 0 ? (
+        {products.length === 0 && !isLoading ? (
           <NoResults />
         ) : isLoading ? (
           <ProductsSkeleton />

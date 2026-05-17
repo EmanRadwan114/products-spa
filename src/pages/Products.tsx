@@ -7,7 +7,7 @@ import { useProductsContext } from "../context/products.context";
 import NoResults from "../components/ui/NoResults";
 
 const Products: React.FC = () => {
-  const { products } = useProductsContext();
+  const { products, isLoading } = useProductsContext();
   return (
     <section>
       <Container>
@@ -16,7 +16,7 @@ const Products: React.FC = () => {
             <h2 className="text-3xl font-bold text-center mb-6">
               Pick Your Favorite Product
             </h2>
-            {products.length === 0 ? (
+            {products.length === 0 && !isLoading ? (
               <NoResults />
             ) : (
               <div className="flex flex-col gap-6">
