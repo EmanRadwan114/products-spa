@@ -7,6 +7,7 @@ import {
 import { toast } from "react-toastify";
 import { useProductsContext } from "../context/products.context";
 
+// ^---------------------fetch all products---------------------
 export const useFetchProducts = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -30,6 +31,7 @@ export const useFetchProducts = () => {
   return { products, isLoading, setIsLoading, setProducts };
 };
 
+// ^---------------------fetch category products & search product---------------------
 export const useFilterProducts = () => {
   const [originalFilteredProducts, setOriginalFilteredProducts] = useState<
     IProduct[]
@@ -49,7 +51,10 @@ export const useFilterProducts = () => {
 
   // every mount start with all category
   useEffect(() => {
-    setSelectedCategory("all");
+    return () => {
+      setSelectedCategory("all");
+      setSearchTerm("");
+    };
   }, []);
 
   // fetch products by category
@@ -70,7 +75,7 @@ export const useFilterProducts = () => {
     if (selectedCategory !== "all") {
       fetchData();
     }
-  }, [selectedCategory, setFilteredProducts, setIsLoading, setSearchTerm]);
+  }, [selectedCategory, setFilteredProducts, setIsLoading]);
 
   // search product
   useEffect(() => {
