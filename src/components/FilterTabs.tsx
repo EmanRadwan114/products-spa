@@ -9,7 +9,7 @@ const FilterTabs: React.FC<IProps> = ({}) => {
   return (
     <section>
       <Container>
-        <h2 className="text-2xl font-bold text-center text-primary mb-6">
+        <h2 className="text-3xl font-bold text-center mb-6">
           Pick Your Favorite Category
         </h2>
         <div className="flex gap-4 flex-wrap items-center justify-center">

@@ -1,8 +1,9 @@
 import React from "react";
 import type { IProduct } from "../types/products.types";
 import Badge from "./ui/Badge";
-import { Star } from "lucide-react";
+import { MoveRight, Star } from "lucide-react";
 import Button from "./ui/Button";
+import { Link } from "react-router";
 
 interface IProps {
   product: IProduct;
@@ -10,12 +11,14 @@ interface IProps {
 
 const ProductCard: React.FC<IProps> = ({ product }) => {
   return (
-    <div className="bg-primary/6 dark:bg-neutral-800 rounded-lg shadow-xl p-4 flex flex-col gap-2 group hover:scale-105 transition-all duration-300 overflow-hidden">
-      <img
-        src={product?.image}
-        alt={product?.title}
-        className="h-32 object-cover block m-auto"
-      />
+    <div className="bg-primary/6 dark:bg-neutral-800 rounded-lg shadow-lg p-4 flex flex-col gap-2 group overflow-hidden">
+      <Link to={`/products/${product?.id}`}>
+        <img
+          src={product?.image}
+          alt={product?.title}
+          className="h-32 object-cover block m-auto group-hover:scale-110 transition-all duration-500"
+        />
+      </Link>
       <div className="flex justify-between items-center flex-wrap gap-2">
         <Badge>{product?.category}</Badge>
         <div className="flex items-center gap-1">
@@ -25,15 +28,25 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
       </div>
       <div className="p-2 flex flex-col gap-2">
         <h3 className="font-medium text-base group-hover:text-primary transition-all duration-300">
-          {product?.title.slice(0, 40)}
-          {product?.title?.length > 40 ? "..." : ""}
+          <Link to={`/products/${product?.id}`} className="block w-full h-full">
+            {product?.title.slice(0, 40)}
+            {product?.title?.length > 40 ? "..." : ""}
+          </Link>
         </h3>
         <p className="text-primary-text/80 text-sm">
           {product?.description.slice(0, 80)}
           {product?.description?.length > 40 ? "..." : ""}
         </p>
         <span className="text-lg font-semibold">{product?.price}$</span>
-        <Button>View Details</Button>
+        <Button>
+          <Link
+            to={`/products/${product?.id}`}
+            className="flex gap-2 items-center justify-center h-full w-full"
+          >
+            View Details
+            <MoveRight />
+          </Link>
+        </Button>
       </div>
     </div>
   );

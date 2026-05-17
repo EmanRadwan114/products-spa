@@ -12,10 +12,12 @@ const HeroSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:items-center bg-primary/10 dark:bg-neutral-800 px-4 md:px-8 py-4 rounded-lg justify-items-center">
           {/* content */}
           <div className="flex flex-col gap-4 max-w-lg">
-            <h1 className="text-5xl font-bold leading-tight">Shopio</h1>
-            <p className="text-lg text-primary-text/80">
-              Get premium products at the best prices. Wide range of products to
-              choose from.
+            <h1 className="text-5xl font-bold">Shopio</h1>
+            <p className="text-lg text-primary-text/80 tracking-wide">
+              Shopio offers a wide range of premium products at the best prices.
+              Discover our curated selection of high-quality products, chosen
+              for their excellence and popularity, and find your next favorite
+              item today!
             </p>
             <Button className="w-fit px-8">
               <Link
