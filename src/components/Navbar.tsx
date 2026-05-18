@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
           <Button
             variant="icon"
             onClick={toggleTheme}
-            className="hover:text-primary px-0!"
+            className="hover:text-primary px-0! self-start"
           >
             {resolvedTheme === "light" ? <Moon /> : <Sun />}
           </Button>
